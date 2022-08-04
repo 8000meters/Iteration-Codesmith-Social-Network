@@ -56,6 +56,7 @@ export const ResidentDetails = (props) => {
     changeAuthenticated(false);
     document.cookie = 'userId=0; path=/; max-age=0;';
     document.cookie = 'linkedInAuthCode=0; path=/; max-age=0;';
+    document.cookie = 'token=0; path=/; max-age=0';
   }
   
   return (
@@ -65,6 +66,7 @@ export const ResidentDetails = (props) => {
       <button className="LogOutButton" onClick={() => {
         document.cookie = 'userId=0; path=/; max-age=0;';
         document.cookie = 'linkedInAuthCode=0; path=/; max-age=0;';
+        document.cookie = 'token=0; path=/; max-age=0';
         console.log('logged out')
         changeAuthenticated(false);
         setRefresh(true);

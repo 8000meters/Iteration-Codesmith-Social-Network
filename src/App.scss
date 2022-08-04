@@ -1,5 +1,6 @@
 body {
   color: rgb(145, 145, 145);
+  margin: 5px;
 }
 
 #codesmithImg {
@@ -186,6 +187,8 @@ body {
 .HomeContainerPage {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
 }
 
 .HomePage {
@@ -283,6 +286,8 @@ body {
       grid-template-columns: repeat(6, 1fr);
       gap: 50px;
       justify-items: center;
+      margin-top: 60px;
+      margin-left: 50px;
 
       .ResidentBox {
         height: 13vw;
@@ -344,6 +349,7 @@ body {
   flex-direction: row;
   justify-content: center;
   gap: 30px;
+  margin-top: 90px;
 
   .ResidentDetails {
     height: 85vh;
@@ -363,6 +369,30 @@ body {
     color: rgb(48, 48, 48);
     background-color: rgb(230, 230, 230);
     box-shadow: 0px 10px 10px rgb(170, 175, 185);
+
+    input {
+      border-style: none;
+      margin: 5px;
+      border-radius: 10px;
+      height: 30px;
+      padding: 10px;
+      width: 300px;
+    }
+    button {
+      // border-style: none;
+      // border-radius: 10px;
+    
+      width: 10vw;
+      height: 60px;
+      border: 1px solid #034f75;
+      border-radius: 20px;
+      background-color: #034f75;
+      color: whitesmoke;
+      font-family: Verdana, Tahoma, sans-serif;
+      z-index: 1000;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
   }
 }
 
@@ -462,6 +492,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 65px;
   
     .Cohortbox {
       display: flex;
