@@ -15,7 +15,7 @@ router.get('/',
   }
 );
 
-router.get('/complete', userComplete, (req, res) => {
+router.get('/complete', verifyToken, userComplete, (req, res) => {
   return res.status(200).json(res.locals.complete);
 }
 );
