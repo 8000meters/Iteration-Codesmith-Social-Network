@@ -14,12 +14,11 @@ export const UserContainer = (props) => {
   const [saved, changeSaved] = useState(false);
 
   useEffect(() => {
-    console.log('DOCUMENT COOKIE: ', document.cookie.split(';')[0].slice(document.cookie.split(';')[0].indexOf('=') + 1));
     fetch('http://localhost:8080/residents/id', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        id: document.cookie.split(';')[0].slice(document.cookie.split(';')[0].indexOf('=') + 1)
+        id: document.cookie.split('; userId=')[1]
       })
     })
       .then(res => res.json())
@@ -32,12 +31,11 @@ export const UserContainer = (props) => {
 
   useEffect(() => {
     if (saved) {
-      console.log('DOCUMENT COOKIE: ', document.cookie)
       fetch('http://localhost:8080/residents/id', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          id: document.cookie.split(';')[0].slice(document.cookie.split(';')[0].indexOf('=') + 1)
+          id: document.cookie.split('; userId=')[1]
         })
       })
         .then(res => res.json())
@@ -62,13 +60,12 @@ export const UserContainer = (props) => {
   }
 
   function saveFunction() {
-    console.log('DOCUMENT COOKIE: ', document.cookie)
     console.log(user);
     fetch('http://localhost:8080/residents/update', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        id: document.cookie.split(';')[0].slice(document.cookie.split(';')[0].indexOf('=') + 1),
+        id: document.cookie.split('; userId=')[1],
         user: user,
       })
     })
@@ -86,4 +83,3 @@ export const UserContainer = (props) => {
     </div>
   );
 };
-

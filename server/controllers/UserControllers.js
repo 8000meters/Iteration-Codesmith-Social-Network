@@ -226,13 +226,14 @@ userControllers.registerUser = async (req, res, next) => {
     });
   }
 };
+``;
 
 //delete user requiring @value ( req.body.id )
 userControllers.deleteUser = async (req, res, next) => {
   const { name } = req.body;
   const options = [name];
   try {
-    const text = 'DELETE FROM residents WHERE name=$1';
+    const text = `DELETE FROM residents WHERE name=$1`;
     const userDeleted = await db.query(text, options);
     res.locals.userDeleted = userDeleted;
     res.cookie('userId', null);

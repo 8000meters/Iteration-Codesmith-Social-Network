@@ -30,27 +30,24 @@ export default function MainContainer() {
     // if cookie is not set, load the landing page
     //Check if cohortIsSet when isAuthenticated is changed to true
     //Fetching to the server, whether user is Authenticated and cohortisset
-    
-    //refactor and check for JWT token. update changeAuth state based on truthy/falsy
 
-    if (getCookie('token')) {
-      console.log('found a token, going to verify user');
+    if (getCookie('userId') && getCookie('linkedInAuthCode') && getCookie('linkedInAuthCode') !== 'undefined') {
+      console.log('found a user ID and auth code, going to verify user');
       fetch('http://localhost:8080/verifyuser', {
         credentials: 'same-origin',
       })
         .then(res => {
-          console.log('mainContainer verifyUser: ', res);
+          console.log(res);
           if (res.status === 200) changeAuthenticated(true);
         });
     } else {
       changeAuthenticated(false);
     }
-    
-    if (getCookie('token')) {
+    if (getCookie('userId')) {
       fetch('http://localhost:8080/verifyuser/complete')
         .then(res => res.json())
         .then(res => {
-          console.log('mainContainer complete', res);
+          console.log(res);
           if (res) setCohort(true);
         });
     }
